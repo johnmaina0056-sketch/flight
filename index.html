@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Renegade Air — Kenya's Regional Airline">
+<title>Renegade Air — Be Different</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="container topbar-inner">
+    <div class="top-left"><a href="#">✈ Customer Login</a><a href="#">🧳 Agent Login</a><a href="#">📋 Agent CRS Login</a></div>
+    <div class="top-right"><button class="plain">🇰🇪 KES</button><button class="plain">English ▾</button><a href="tel:+0752737113">0752737113</a></div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#home"><span class="brand-mark">✈</span><span><strong>Renegade Air</strong><small>Be Different</small></span></a>
+    <nav id="mainNav">
+      <a href="#about">About Us</a><a href="#destinations">Destinations</a><a href="#services">Services</a>
+      <a href="#travel">Travel Info</a><a href="#frequent">Frequent Flyer</a><a href="#contact">Contact</a>
+      <button class="book-btn" onclick="openBooking()">Book Now</button>
+    </nav>
+    <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="airline-badge">🇰🇪 Kenya's Regional Airline</div>
+    <h1>Fly Over Wild Kenya —<br>Iconic Skies Await</h1>
+    <p>Affordable daily flights to the Mara, Coast, Rift Valley &amp; beyond</p>
+
+    <div class="search-card">
+      <div class="trip-tabs">
+        <button class="trip-tab active" data-trip="roundtrip">⇌ Roundtrip</button>
+        <button class="trip-tab" data-trip="oneway">→ One Way</button>
+        <button class="trip-tab" data-trip="multicity">⊕ Multi-City</button>
+      </div>
+      <div class="search-grid">
+        <label>From<select id="from"></select></label>
+        <label>To<select id="to"></select></label>
+        <label>Depart<input id="depart" type="date"></label>
+        <label id="returnWrap">Return<input id="returnDate" type="date"></label>
+        <label>Passengers<select id="passengers"></select></label>
+        <button class="find-btn" onclick="findFlights()">Find Flights →</button>
+      </div>
+      <div id="couponToggle" class="coupon-toggle">🏷 Have a coupon code? Enter it here</div>
+      <div id="couponArea" class="coupon-area"><input id="coupon" placeholder="Coupon code"><button onclick="applyCoupon()">Apply</button><span id="couponMsg"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div><strong>12+</strong><span>Destinations Served</span></div>
+  <div><strong>98%</strong><span>On-Time Performance</span></div>
+  <div><strong>500K+</strong><span>Happy Passengers</span></div>
+  <div><strong>Since 2006</strong><span>Flying Kenya</span></div>
+</section>
+
+<section id="destinations" class="section destinations-section">
+  <div class="container">
+    <div class="eyebrow">Our Destinations</div>
+    <h2>Popular Routes</h2>
+    <p class="lead">Book your daily flights to Kenya's most spectacular destinations — from wild savannah to pristine beaches and vibrant towns.</p>
+    <div id="routeGrid" class="route-grid"></div>
+  </div>
+</section>
+
+<section class="wild" id="travel">
+  <div class="container">
+    <div class="eyebrow">Gallery</div>
+    <h2>Wild Kenya</h2>
+    <p>Lions, elephants, flamingos, and coastlines — every flight takes you somewhere extraordinary.</p>
+    <div class="gallery-wrap">
+      <button class="gallery-arrow left" onclick="slideGallery(-1)">‹</button>
+      <div id="gallery" class="gallery"></div>
+      <button class="gallery-arrow right" onclick="slideGallery(1)">›</button>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="difference">
+  <div class="container">
+    <div class="eyebrow light">Why Choose Us</div>
+    <h2>The Renegade Difference</h2>
+    <div class="features">
+      <article><span>⚡</span><h3>Fast Connections</h3><p>Direct routes to remote airstrips unreachable by road — arrive fresh for your safari or beach stay.</p></article>
+      <article><span>💰</span><h3>Affordable Fares</h3><p>Competitive pricing with no hidden fees. Transparent booking from KES 6,800.</p></article>
+      <article><span>🛡</span><h3>Safety First</h3><p>KCAA certified fleet maintained to the highest international safety standards.</p></article>
+      <article><span>🌍</span><h3>Local Expertise</h3><p>Over 18 years flying Kenya's terrain. Our pilots know every airstrip intimately.</p></article>
+      <article><span>🎒</span><h3>Flexible Booking</h3><p>Easy changes, group discounts, and a Frequent Flyer programme that rewards loyalty.</p></article>
+      <article><span>📱</span><h3>24/7 Support</h3><p>Dedicated support on WhatsApp 0752737113, available around the clock.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container about-grid">
+    <div>
+      <div class="eyebrow">About Renegade Air</div>
+      <h2>Kenya's Most Adventurous Airline</h2>
+      <p>Renegade Air was founded with a simple mission: provide safe, dependable, and cost-effective air transport to every corner of Kenya. From the Maasai Mara to the shores of Lamu, we open the country up to travellers who refuse to be confined by distance.</p>
+      <p>Our modern turboprop fleet is maintained to the highest KCAA standards, piloted by seasoned aviators with deep knowledge of Kenya's diverse terrain and weather patterns.</p>
+      <button class="green-btn" onclick="openBooking()">Book Your Adventure →</button>
+    </div>
+    <img src="https://images.unsplash.com/photo-1534567110243-8875d64ca8ff?auto=format&fit=crop&w=1200&q=85" alt="Giraffe in Kenya">
+  </div>
+</section>
+
+<section id="frequent" class="mini-info">
+  <div class="container info-grid">
+    <div><span>✈</span><h3>Frequent Flyer</h3><p>Earn rewards and enjoy benefits when you fly with Renegade Air.</p></div>
+    <div><span>🧳</span><h3>Group Bookings</h3><p>Traveling with a group? Our team can help coordinate your journey.</p></div>
+    <div><span>📦</span><h3>Cargo</h3><p>Reliable regional cargo solutions across our network.</p></div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="#home"><span class="brand-mark">✈</span><span><strong>Renegade Air</strong><small>Be Different</small></span></a>
+      <p>We provide safe, dependable and cost-effective air transport to destinations across Kenya. KCAA certified. Est. 2006.</p>
+      <p>📞 <a href="tel:+0752737113">0752737113</a></p>
+    </div>
+    <div><h4>Destinations</h4><a href="#destinations">Maasai Mara</a><a href="#destinations">Diani / South Coast</a><a href="#destinations">Amboseli</a><a href="#destinations">Samburu</a><a href="#destinations">Lamu</a><a href="#destinations">Kisumu</a></div>
+    <div><h4>Services</h4><a href="#services">Charter Flights</a><a href="#services">Cargo</a><a href="#services">Medevac</a><a href="#frequent">Group Bookings</a><a href="#frequent">Frequent Flyer</a></div>
+    <div><h4>Company</h4><a href="#about">About Us</a><a href="#travel">Travel Information</a><a href="#home">News &amp; Magazine</a><a href="#home">Careers</a><a href="#contact">Contact Us</a></div>
+  </div>
+  <div class="copyright">© 2024 Renegade Air. All rights reserved. KCAA Licensed. <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Cookies</a></div>
+</footer>
+
+<div id="bookingModal" class="modal" aria-hidden="true">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeBooking()">✕</button>
+    <div class="steps">
+      <div class="step active" data-step="1"><b>1</b><span>Passenger Info</span></div>
+      <div class="step" data-step="2"><b>2</b><span>Seat Selection</span></div>
+      <div class="step" data-step="3"><b>3</b><span>Your Ticket</span></div>
+      <div class="step" data-step="4"><b>4</b><span>Confirmed</span></div>
+    </div>
+    <div id="bookingContent"></div>
+  </div>
+</div>
+
+<div id="destinationModal" class="modal small-modal">
+  <div class="destination-box">
+    <button class="modal-close" onclick="closeDestination()">✕</button>
+    <div id="destinationContent"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
